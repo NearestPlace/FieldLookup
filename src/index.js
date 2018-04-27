@@ -27,7 +27,6 @@ export default {
     });
   },
 
-
 };
 
 String.prototype.replaceAll = function (search, replacement) {
