@@ -16,7 +16,7 @@ export default {
     return validNumbers;
   },
 
-  async lookup(input, country = 'DE') {
+  async get(input, country = 'DE') {
     const phoneNumbers = await this.phone(input.replaceAll('/', '-'), country);
     return new Promise((resolve) => {
       resolve({
