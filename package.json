@@ -1,8 +1,12 @@
 {
   "name": "@nearest/nearest-fieldlookup",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Get contact fields from strings",
   "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NearestPlace/FieldLookup.git"
+  },
   "scripts": {
     "test": "mocha --require babel-core/register --require babel-polyfill",
     "build": "babel src --presets babel-preset-env --out-dir dist",
