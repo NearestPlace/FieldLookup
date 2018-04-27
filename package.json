@@ -1,6 +1,6 @@
 {
   "name": "@nearest/nearest-fieldlookup",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Get contact fields from strings",
   "main": "./dist/index.js",
   "repository": {
