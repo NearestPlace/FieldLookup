@@ -16,7 +16,7 @@
     "awesome-phonenumber": "^2.2.5",
     "get-emails": "^2.1.0",
     "get-urls": "^7.2.0",
-    "phonenumbers-extractor": "^1.1.6"
+    "phonenumbers-extractor": "^1.1.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
