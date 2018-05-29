@@ -1,8 +1,5 @@
 import chai from 'chai';
-import lookup from '../src/index';
-
-require("babel-core/register");
-require("babel-polyfill");
+import lookup from '../dist/index';
 
 const expect = chai.expect;
 
