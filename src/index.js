@@ -19,11 +19,14 @@ export default {
   async get(input, country = 'DE') {
     const phoneNumbers = await this.phone(input, country);
     return new Promise((resolve) => {
-      resolve({
-        phoneNumbers: phoneNumbers.map(num => num.number.e164),
-        websites: [...getUrls(input)],
-        emails: [...getEmails(input)],
-      });
+      if (!input) resolve({ phoneNumbers: [], websites: [], emails: [] });
+      else {
+        resolve({
+          phoneNumbers: phoneNumbers.map(num => num.number.e164),
+          websites: [...getUrls(input)],
+          emails: [...getEmails(input)],
+        });
+      }
     });
   },
 
