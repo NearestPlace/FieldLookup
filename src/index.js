@@ -16,21 +16,24 @@ export default {
     return validNumbers;
   },
 
-  async get(input = '', country = 'DE') {
-    if (!input) {
-      return {
-        phoneNumbers: [],
-        websites: [],
-        emails: [],
-      };
-    }
-    const checkInput = input.toString();
-    const phoneNumbers = await this.phone(checkInput, country);
-    return {
-      phoneNumbers: phoneNumbers.map(num => num.number.e164),
-      websites: [...getUrls(checkInput)],
-      emails: [...getEmails(checkInput)],
-    };
+  get(input = '', country = 'DE') {
+    return new Promise(async (resolve) => {
+      if (!input) {
+        resolve({
+          phoneNumbers: [],
+          websites: [],
+          emails: [],
+        });
+        return;
+      }
+      const checkInput = input.toString();
+      const phoneNumbers = await this.phone(checkInput, country);
+      resolve({
+        phoneNumbers: phoneNumbers.map(num => num.number.e164),
+        websites: [...getUrls(checkInput)],
+        emails: [...getEmails(checkInput)],
+      });
+    });
   },
 
 };
