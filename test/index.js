@@ -42,4 +42,14 @@ describe('Extract contact data from string', () => {
         done();
       });
   });
+
+  it('Check wrong input type', (done) => {
+    const input = true;
+
+    lookup.get(input)
+      .then(() => {
+        done();
+      })
+      .catch(console.log);
+  });
 });
