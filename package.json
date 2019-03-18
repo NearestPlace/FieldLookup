@@ -9,28 +9,29 @@
   },
   "homepage": "https://nearest.place",
   "scripts": {
-    "test": "mocha --require babel-core/register",
-    "build": "babel src --presets babel-preset-env --out-dir dist",
+    "test": "mocha --require @babel/register",
+    "build": "babel src --presets @babel/preset-env --plugins @babel/plugin-transform-runtime --out-dir dist",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "awesome-phonenumber": "^2.2.5",
+    "awesome-phonenumber": "^2.6.0",
     "get-emails": "^2.1.0",
-    "get-urls": "^7.2.0",
+    "get-urls": "^9.0.0",
     "phonenumbers-extractor": "^1.1.7"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "chai": "*",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^11.1.2",
-    "eslint-plugin-import": "^2.2.0",
-    "mocha": "*"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-stage-2": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.3.4",
+    "chai": "^4.1.2",
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "mocha": "^4.0.1"
   },
   "author": "Stephan Georg <s.georg@nearest.place>",
   "license": "ISC"
