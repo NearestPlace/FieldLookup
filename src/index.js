@@ -8,15 +8,14 @@ export default {
     const numbers = await extractor.extractNumbers(input, 5);
     const validNumbers = [];
     numbers.forEach((number) => {
-      const checkNr = (number.originalFormat[0] === '+') ?
-        `+${number.filteredFormat}` : `${number.filteredFormat}`;
+      const checkNr = (number.originalFormat[0] === '+') ? `+${number.filteredFormat}` : `${number.filteredFormat}`;
       const tel = new PhoneNumber(checkNr, country);
       if (tel.isValid()) validNumbers.push(tel.toJSON());
     });
     return validNumbers;
   },
 
-  get(input = '', country = 'DE') {
+  get(input = '', country = 'DE', options = {}) {
     return new Promise(async (resolve) => {
       if (!input) {
         resolve({
@@ -27,11 +26,13 @@ export default {
         return;
       }
       const checkInput = input.toString();
-      const phoneNumbers = await this.phone(checkInput, country);
+      const phoneNumbers = (options.phone !== false) ? await this.phone(checkInput, country) : [];
+      const websites = (options.website !== false) ? [...getUrls(checkInput)] : [];
+      const emails = (options.email !== false) ? [...getEmails(checkInput)] : [];
       resolve({
         phoneNumbers: phoneNumbers.map(num => num.number.e164),
-        websites: [...getUrls(checkInput)],
-        emails: [...getEmails(checkInput)],
+        websites,
+        emails,
       });
     });
   },
