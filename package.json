@@ -14,6 +14,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.3.4",
     "awesome-phonenumber": "^2.6.0",
     "get-emails": "^2.1.0",
     "get-urls": "^9.0.0",
@@ -26,7 +27,6 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-stage-2": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.3.4",
     "chai": "^4.1.2",
     "eslint": "^5.14.0",
     "eslint-config-airbnb-base": "^13.0.0",
