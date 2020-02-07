@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "awesome-phonenumber": "^2.6.0",
-    "get-emails": "^2.1.0",
-    "get-urls": "^9.0.0",
+    "awesome-phonenumber": "^2.26.0",
+    "get-emails": "^3.0.0",
+    "get-urls": "^9.2.0",
     "phonenumbers-extractor": "^1.1.7"
   },
   "devDependencies": {
