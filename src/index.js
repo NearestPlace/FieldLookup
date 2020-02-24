@@ -15,6 +15,14 @@ export default {
     return validNumbers;
   },
 
+  url(input) {
+    return [...getUrls(input, { requireSchemeOrWww: false })];
+  },
+
+  email(input) {
+    return [...getEmails(input)];
+  },
+
   get(input = '', country = 'DE', options = {}) {
     return new Promise(async (resolve) => {
       if (!input) {
@@ -27,8 +35,8 @@ export default {
       }
       const checkInput = input.toString();
       const phoneNumbers = (options.phone !== false) ? await this.phone(checkInput, country) : [];
-      const websites = (options.website !== false) ? [...getUrls(checkInput)] : [];
-      const emails = (options.email !== false) ? [...getEmails(checkInput)] : [];
+      const websites = (options.website !== false) ? this.url(checkInput) : [];
+      const emails = (options.email !== false) ? this.email(checkInput) : [];
       resolve({
         phoneNumbers: phoneNumbers.map(num => num.number.e164),
         websites,
