@@ -16,7 +16,7 @@ describe('Extract contact data from string', () => {
         expect(result).to.be.an('object')
           .and.to.have.property('websites')
           .and.to.be.an('array')
-          .and.to.have.length(2);
+          .and.to.have.length(3);
         expect(result).to.be.an('object')
           .and.to.have.property('emails')
           .and.to.be.an('array')
@@ -38,7 +38,7 @@ describe('Extract contact data from string', () => {
         expect(result).to.be.an('object')
           .and.to.have.property('websites')
           .and.to.be.an('array')
-          .and.to.have.length(2);
+          .and.to.have.length(3);
         expect(result).to.be.an('object')
           .and.to.have.property('emails')
           .and.to.be.an('array')
