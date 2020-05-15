@@ -14,9 +14,11 @@ export default {
     });
     return validNumbers;
   },
-
   url(input) {
-    return [...getUrls(input, { requireSchemeOrWww: false })];
+    const emails = getEmails(input);
+    let cleanedInput = input;
+    emails.forEach((email) => { cleanedInput = cleanedInput.replace(email, ' '); });
+    return [...getUrls(cleanedInput, { requireSchemeOrWww: false })];
   },
 
   email(input) {

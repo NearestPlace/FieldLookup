@@ -13,4 +13,19 @@ describe('Extract contact data from string', () => {
       })
       .catch();
   });
+
+  it('Check exclude email from website', (done) => {
+    const input = 'Telefon: 01234/56789\r\nE-mail: me@gmail.com\r\nInternet: www.mywebsite.de';
+
+    lookup.get(input)
+      .then((result) => {
+        expect(result.phoneNumbers).has.lengthOf(0);
+        expect(result.websites).has.lengthOf(1);
+        expect(result.websites[0]).to.be.equal('http://mywebsite.de');
+        expect(result.emails).has.lengthOf(1);
+        expect(result.emails[0]).to.be.equal('me@gmail.com');
+        done();
+      })
+      .catch();
+  });
 });
